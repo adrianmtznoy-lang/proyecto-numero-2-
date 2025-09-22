@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Escolar de Biología Molecular</title>
+    <!-- Incluir Tailwind CSS desde CDN para un diseño moderno y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #E6F0FF; /* Azul claro */
+            color: #1A237E; /* Azul oscuro */
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #3F51B5; /* Azul medio */
+            border-radius: 9999px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .nutrition-table th, .nutrition-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .nutrition-table th {
+            text-align: left;
+            font-weight: 600;
+            background-color: #f9fafb;
+        }
+        /* Animaciones para la carga de secciones */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-[#E6F0FF] text-[#1A237E]">
+
+    <!-- Barra de Navegación -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto p-4 flex flex-wrap justify-center sm:justify-between items-center text-center">
+            <a href="#" class="text-xl md:text-2xl font-bold text-[#3F51B5] mb-2 sm:mb-0">
+                Tu Proyecto de Nutrición
+            </a>
+            <div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 text-gray-700 font-medium">
+                <a href="#intro" class="hover:text-[#3F51B5] transition-colors duration-300 px-2 py-1">Introducción</a>
+                <a href="#macro" class="hover:text-[#3F51B5] transition-colors duration-300 px-2 py-1">Macronutrientes</a>
+                <a href="#proteinas" class="hover:text-[#3F51B5] transition-colors duration-300 px-2 py-1">Proteínas</a>
+                <a href="#micro" class="hover:text-[#3F51B5] transition-colors duration-300 px-2 py-1">Micronutrientes</a>
+                <a href="#alimentos" class="hover:text-[#3F51B5] transition-colors duration-300 px-2 py-1">Alimentos</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto">
+        
+        <!-- Sección de Introducción -->
+        <section id="intro" class="my-8 md:my-12 fade-in">
+            <div class="card p-6 md:p-8">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-3xl font-bold text-gray-800 section-title mb-4">
+                        Introducción a la Biología Molecular
+                    </h2>
+                </div>
+                <div class="md:flex md:space-x-8 items-center">
+                    <div class="md:w-2/3">
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            La **biología molecular** es la ciencia que estudia los procesos biológicos a nivel de los organismos vivos, enfocándose en la interacción entre el ADN, el ARN y las proteínas. Se centra en entender cómo funcionan las células y las moléculas que las componen. En este contexto, los **compuestos más importantes** son las biomoléculas, que se dividen en dos categorías principales: los **macronutrientes** y los **micronutrientes**.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Los **compuestos orgánicos** son las bases de la vida. Se caracterizan por tener un esqueleto de átomos de carbono, y los más importantes para nuestro cuerpo son los **macronutrientes** (carbohidratos, lípidos, proteínas) y los **micronutrientes** (vitaminas y minerales), que son esenciales para el buen funcionamiento de nuestro organismo.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 flex justify-center mt-6 md:mt-0">
+                        <!-- Imagen de la célula y ADN -->
+                        <img src="https://placehold.co/400x250/3F51B5/E6F0FF?text=ADN+y+Moléculas" alt="Ilustración de una estructura de ADN y moléculas biológicas" class="rounded-lg shadow-md w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Macronutrientes -->
+        <section id="macro" class="my-8 md:my-12 fade-in">
+            <div class="flex items-center justify-between">
+                <h2 class="text-3xl font-bold text-gray-800 section-title text-center">
+                    Los Macronutrientes
+                </h2>
+            </div>
+            <div class="card p-6 md:p-8 mb-6">
+                <p class="text-gray-700 mb-4">
+                    Los **macronutrientes** son los principales componentes de los alimentos y son esenciales para el cuerpo humano, ya que proporcionan la mayor parte de la energía y los materiales necesarios para el crecimiento, la reparación y el funcionamiento del organismo. Se consumen en grandes cantidades (gramos).
+                </p>
+                <p class="text-gray-700 mb-4">
+                    Se clasifican en tres grupos principales: **carbohidratos**, **lípidos** (grasas) y **proteínas**.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+
+                <!-- Carbohidratos -->
+                <div class="card">
+                    <h3 class="text-2xl font-semibold mb-2 text-[#3F51B5]">Carbohidratos</h3>
+                    <div class="flex justify-center mb-4">
+                        <img src="https://placehold.co/300x200/3F51B5/E6F0FF?text=Carbohidratos" alt="Imagen de una cadena de carbohidratos" class="rounded-lg shadow-md w-full">
+                    </div>
+                    <p class="text-sm font-semibold text-gray-500 uppercase">Estructura y Clasificación</p>
+                    <p class="text-gray-700 mb-4">Son cadenas de azúcares, conocidas como monosacáridos (unidades simples), disacáridos (dos unidades) y polisacáridos (cadenas largas). Se clasifican en simples (azúcar, fructosa) y complejos (almidón, fibra).</p>
+                    <p class="text-sm font-semibold text-gray-500 uppercase">Funciones</p>
+                    <p class="text-gray-700 mb-4">Son la principal fuente de energía para el cuerpo, especialmente para el cerebro y los músculos. La glucosa, un carbohidrato simple, es el combustible preferido por las células. Cada gramo de carbohidrato proporciona **4 kcal**.</p>
+                    <p class="text-sm font-semibold text-gray-500 uppercase">Alimentos</p>
+                    <p class="text-gray-700 mb-4">Pan, arroz, pasta, papas, frutas y vegetales. Ejemplos de alimentos con monosacáridos son las frutas y la miel.</p>
+                    <p class="text-sm font-semibold text-gray-500 uppercase">Aumento / Disminución</p>
+                    <p class="text-gray-700">
+                        **Aumento:** El exceso de carbohidratos, en particular los simples, se almacena como grasa, lo que puede llevar al aumento de peso y, con el tiempo, a problemas como la diabetes.
+                        <br><br>
+                        **Disminución:** Si no consumes suficientes carbohidratos, tu cuerpo usará grasas y proteínas para obtener energía, lo que puede causar fatiga, debilidad y una pérdida de masa muscular.
+                    </p>
+                </div>
+
+                <!-- Lípidos -->
+                <div class="card">
+                    <h3 class="text-2xl font-semibold mb-2 text-[#64B5F6]">Lípidos (Grasas)</h3>
+                    <div class="flex justify-center mb-4">
+                        <img src="https://placehold.co/300x200/64B5F6/1A237E?text=Lípidos" alt="Imagen de una molécula de lípidos" class="rounded-lg shadow-md w-full">
+                    </div>
+                    <p class="text-sm font-semibold text-gray-500 uppercase">Estructura y Clasificación</p>
+                    <p class="text-gray-700 mb-4">Compuestos por ácidos grasos y glicerol. Se clasifican en saturadas (principalmente en productos de origen animal), insaturadas (en aceites vegetales y pescados) y grasas trans (producidas industrialmente).</p>
+                    <p class="text-sm font-semibold text-gray-500 uppercase">Funciones</p>
+                    <p class="text-gray-700 mb-4">Almacenan energía a largo plazo, forman parte de las membranas celulares, protegen los órganos vitales y ayudan a absorber algunas vitaminas (A, D, E, K). Cada gramo de lípido proporciona **9 kcal**, siendo la fuente de energía más densa.</p>
+                    <p class="text-sm font-semibold text-gray-500 uppercase">Alimentos</p>
+                    <p class="text-gray-700 mb-4">Aguacate, nueces, semillas, aceites vegetales y lácteos enteros.</p>
+                    <p class="text-sm font-semibold text-gray-500 uppercase">Aumento / Disminución</p>
+                    <p class="text-gray-700">
+                        **Aumento:** Un consumo excesivo, especialmente de grasas saturadas y trans, puede elevar el colesterol y aumentar el riesgo de enfermedades del corazón y aumento de peso.
+                        <br><br>
+                        **Disminución:** Una deficiencia de grasas saludables puede dificultar la absorción de vitaminas liposolubles, causar piel seca y afectar la función cerebral y la producción de hormonas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Micronutrientes -->
+        <section id="micro" class="my-8 md:my-12 fade-in">
+            <h2 class="text-3xl font-bold text-gray-800 section-title text-center">
+                Los Micronutrientes
+            </h2>
+            <div class="card p-6 md:p-8 mb-6">
+                <p class="text-gray-700 mb-4">
+                    Los **micronutrientes** son vitaminas y minerales que el cuerpo necesita en pequeñas cantidades para funcionar correctamente. Aunque no proporcionan energía, son esenciales para el metabolismo, el crecimiento y la reparación de los tejidos.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    Se clasifican en **vitaminas** y **minerales**.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+
+                <!-- Vitaminas -->
+                <div class="card">
+                    <h3 class="text-2xl font-semibold mb-2 text-[#3F51B5]">Vitaminas</h3>
+                    <p class="text-sm font-semibold text-gray-500 uppercase">Clasificación</p>
+                    <p class="text-gray-700 mb-4">Las vitaminas se dividen en dos grupos principales:</p>
+                    <ul class="list-disc ml-6 mt-2 mb-4 text-gray-700">
+                        <li>
+                            **Vitaminas Hidrosolubles:** Se disuelven en agua y no se almacenan en el cuerpo. Deben consumirse regularmente. Incluyen la vitamina C y las vitaminas del grupo B.</li>
+                        <li>
+                            **Vitaminas Liposolubles:** Se disuelven en grasas y el cuerpo puede almacenarlas en el hígado y el tejido adiposo. Incluyen las vitaminas A, D, E y K.
+                        </li>
+                    </ul>
+                    <p class="text-sm font-semibold text-gray-500 uppercase">Alimentos que las contienen</p>
+                    <p class="text-gray-700 mb-4">
+                        **Vitamina C:** Cítricos (naranja, kiwi), pimientos, brócoli.
+                        <br>
+                        **Vitamina K:** Verduras de hoja verde (espinaca, col rizada), brócoli, aceites vegetales.
+                        <br>
+                        **Vitamina A:** Zanahorias, batatas, espinacas.
+                        <br>
+                        **Vitamina D:** Salmón, atún, yema de huevo.
+                    </p>
+                    <p class="text-sm font-semibold text-gray-500 uppercase">Aumento / Disminución</p>
+                    <p class="text-gray-700">
+                        **Aumento:** La ingesta excesiva de vitaminas liposolubles puede causar toxicidad. Un exceso de vitaminas hidrosolubles se elimina a través de la orina, pero en grandes cantidades pueden tener efectos adversos.
+                        <br><br>
+                        **Disminución:** La falta de vitaminas puede llevar a diversas enfermedades por deficiencia, como el escorbuto (falta de vitamina C) o raquitismo (falta de vitamina D).
+                    </p>
+                </div>
+
+                <!-- Minerales -->
+                <div class="card">
+                    <h3 class="text-2xl font-semibold mb-2 text-[#64B5F6]">Minerales</h3>
+                    <p class="text-sm font-semibold text-gray-500 uppercase">Clasificación</p>
+                    <p class="text-gray-700 mb-4">Los minerales son elementos inorgánicos esenciales para el organismo. Se clasifican en:</p>
+                    <ul class="list-disc ml-6 mt-2 mb-4 text-gray-700">
+                        <li>
+                            **Macrominerales:** El cuerpo los necesita en grandes cantidades. Ejemplos: calcio, fósforo, sodio, potasio.
+                        </li>
+                        <li>
+                            **Microminerales (Oligoelementos):** Se requieren en cantidades muy pequeñas. Ejemplos: hierro, zinc, yodo, cobre.
+                        </li>
+                    </ul>
+                    <p class="text-sm font-semibold text-gray-500 uppercase">Alimentos que los contienen</p>
+                    <p class="text-gray-700 mb-4">
+                        **Calcio:** Lácteos, tofu, sardinas, almendras.
+                        <br>
+                        **Hierro:** Carne roja, frijoles, espinacas.
+                        <br>
+                        **Zinc:** Carne de res, semillas de calabaza, lentejas.
+                        <br>
+                        **Potasio:** Plátanos, papas, espinacas, frijoles.
+                    </p>
+                     <p class="text-sm font-semibold text-gray-500 uppercase">Aumento / Disminución</p>
+                    <p class="text-gray-700">
+                        **Aumento:** Un exceso de minerales puede ser tóxico. Por ejemplo, un exceso de sodio puede elevar la presión arterial, mientras que un exceso de hierro puede dañar órganos.
+                        <br><br>
+                        **Disminución:** La deficiencia de minerales puede causar problemas graves, como anemia (falta de hierro), osteoporosis (falta de calcio) y problemas de tiroides (falta de yodo).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Proteínas -->
+        <section id="proteinas" class="my-8 md:my-12 fade-in">
+            <h2 class="text-3xl font-bold text-gray-800 section-title text-center">
+                Las Proteínas
+            </h2>
+            <div class="card">
+                <h3 class="text-2xl font-semibold mb-2 text-[#1A237E]">Proteínas</h3>
+                <div class="flex justify-center mb-4">
+                    <img src="https://placehold.co/300x200/1A237E/E6F0FF?text=Proteínas" alt="Imagen de una cadena de aminoácidos" class="rounded-lg shadow-md w-full">
+                </div>
+                <p class="text-sm font-semibold text-gray-500 uppercase">Estructura y Clasificación</p>
+                <p class="text-gray-700 mb-4">Son cadenas de aminoácidos. Se clasifican como completas (contienen todos los aminoácidos esenciales) o incompletas. La estructura de una proteína es compleja y se divide en cuatro niveles (primario, secundario, terciario y cuaternario). La razón por la que existen aminoácidos esenciales y no esenciales es que nuestro cuerpo no puede producir los aminoácidos esenciales, por lo que debemos obtenerlos de nuestra dieta.</p>
+                <p class="text-sm font-semibold text-gray-500 uppercase">Funciones</p>
+                <p class="text-gray-700 mb-4">Son los "bloques de construcción" del cuerpo. Son esenciales para reparar tejidos, construir músculos, producir enzimas y hormonas, y transportar moléculas en el cuerpo. Cada gramo de proteína proporciona **4 kcal**.</p>
+                <p class="text-sm font-semibold text-gray-500 uppercase">Alimentos</p>
+                <p class="text-gray-700 mb-4">Carne, pollo, pescado, huevos, legumbres, tofu y lácteos.</p>
+                <p class="text-sm font-semibold text-gray-500 uppercase">Aumento / Disminución</p>
+                <p class="text-gray-700">
+                    **Aumento:** El exceso de proteínas no se almacena como tal; el cuerpo las convierte en glucosa para energía o las almacena como grasa. Un consumo muy elevado puede sobrecargar los riñones y el hígado.
+                    <br><br>
+                    **Disminución:** La falta de proteínas puede llevar a la pérdida de masa muscular, cabello y uñas frágiles, un sistema inmune debilitado y un crecimiento deficiente.
+                </p>
+                <h4 class="text-xl font-semibold mb-2 mt-4 text-[#3F51B5]">Desnaturalización de las Proteínas</h4>
+                <p class="text-gray-700 mb-2">
+                    La desnaturalización de las proteínas es un proceso en el cual la estructura tridimensional de una proteína se rompe, haciendo que pierda su función biológica. Esto puede ser causado por factores como cambios de temperatura (calor), cambios de pH (acidez o alcalinidad), o la exposición a químicos o fuerza mecánica.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    Un ejemplo común de desnaturalización es cuando cocinas un huevo. La clara del huevo, que contiene la proteína albúmina, cambia de un líquido transparente a un sólido blanco cuando se cocina, debido a que el calor desnaturaliza las proteínas.
+                </p>
+                <h4 class="text-xl font-semibold mb-2 mt-4 text-[#3F51B5]">Enzimas</h4>
+                <p class="text-gray-700 mb-4">
+                    Las **enzimas** son un tipo de proteína que actúa como catalizador biológico. Su función principal es acelerar las reacciones químicas en los organismos vivos sin consumirse en el proceso. Son vitales para funciones como la digestión y el metabolismo.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección de Nutrición y Bioquímica -->
+        <section id="nutricion" class="my-8 md:my-12 fade-in">
+            <h2 class="text-3xl font-bold text-gray-800 section-title text-center">
+                Nutrición y Bioquímica
+            </h2>
+            <div class="card">
+                <h3 class="text-2xl font-semibold mb-2 text-[#64B5F6]">Agua y Minerales</h3>
+                <p class="text-sm font-semibold text-gray-500 uppercase">Alimentos con alto porcentaje de agua</p>
+                <p class="text-gray-700 mb-4">
+                    Cinco alimentos con un alto porcentaje de agua son: sandía, pepino, lechuga, apio y fresas.
+                </p>
+                <p class="text-sm font-semibold text-gray-500 uppercase">Funciones del agua en el organismo</p>
+                <p class="text-gray-700 mb-4">
+                    El agua es esencial para el organismo. Sus funciones principales incluyen:
+                    <ul class="list-disc ml-6 mt-2 mb-4 text-gray-700">
+                        <li>Regular la temperatura corporal.</li>
+                        <li>Transportar nutrientes y oxígeno a las células.</li>
+                        <li>Eliminar desechos a través de la orina y el sudor.</li>
+                        <li>Actuar como lubricante para articulaciones y órganos.</li>
+                    </ul>
+                </p>
+                <p class="text-sm font-semibold text-gray-500 uppercase">Clasificación de los minerales</p>
+                <p class="text-gray-700 mb-4">
+                    Los minerales se clasifican en **macrominerales** (necesarios en grandes cantidades, como el calcio, fósforo, sodio, potasio) y **microminerales** o oligoelementos (necesarios en pequeñas cantidades, como el hierro, zinc, yodo, cobre).
+                </p>
+                <p class="text-sm font-semibold text-gray-500 uppercase">Aumento y Disminución de calcio</p>
+                <p class="text-gray-700 mb-4">
+                    El **calcio** es un mineral vital. El aumento excesivo de calcio puede causar hipercalcemia, afectando el corazón y el cerebro. La disminución (hipocalcemia) puede provocar osteoporosis (huesos débiles) y espasmos musculares.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección de Vitaminas y Ácidos Nucleicos -->
+        <section id="vitaminas-acidos" class="my-8 md:my-12 fade-in">
+            <h2 class="text-3xl font-bold text-gray-800 section-title text-center">
+                Vitaminas y Ácidos Nucleicos
+            </h2>
+            <div class="card">
+                <h3 class="text-2xl font-semibold mb-2 text-[#3F51B5]">Micronutrientes</h3>
+                <h4 class="text-xl font-semibold mb-2 mt-4 text-[#64B5F6]">Clasificación de las vitaminas</h4>
+                <p class="text-gray-700 mb-4">
+                    Las vitaminas son micronutrientes esenciales que el cuerpo necesita en pequeñas cantidades para funcionar correctamente. Se clasifican en dos grandes grupos:
+                </p>
+                <ul class="list-disc ml-6 mt-2 mb-4 text-gray-700">
+                    <li>**Vitaminas Hidrosolubles:** Se disuelven en agua y no se almacenan en el cuerpo. Deben consumirse regularmente. Incluyen la vitamina C y las vitaminas del grupo B.</li>
+                    <li>**Vitaminas Liposolubles:** Se disuelven en grasas y el cuerpo puede almacenarlas en el hígado y el tejido adiposo. Incluyen las vitaminas A, D, E y K.</li>
+                </ul>
+
+                <h4 class="text-xl font-semibold mb-2 mt-4 text-[#64B5F6]">Ácidos Nucleicos</h4>
+                <p class="text-sm font-semibold text-gray-500 uppercase">Estructura y función del ADN y ARN</p>
+                <p class="text-gray-700 mb-4">
+                    El **ADN (ácido desoxirribonucleico)** tiene una estructura de doble hélice y su función es almacenar la información genética a largo plazo. El **ARN (ácido ribonucleico)** tiene una estructura de una sola cadena, y su función principal es transmitir la información genética del ADN a las proteínas.
+                </p>
+                <p class="text-sm font-semibold text-gray-500 uppercase">Tipos de ARN</p>
+                <p class="text-gray-700 mb-4">
+                    Existen tres tipos principales de ARN, cada uno con una función específica:
+                    <ul class="list-disc ml-6 mt-2 mb-4 text-gray-700">
+                        <li>**ARN mensajero (ARNm):** Copia la información del ADN y la transporta a los ribosomas.</li>
+                        <li>**ARN de transferencia (ARNt):** Transporta los aminoácidos a los ribosomas para la construcción de proteínas.</li>
+                        <li>**ARN ribosomal (ARNr):** Forma parte de los ribosomas y ayuda a ensamblar las proteínas.</li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección del ATP -->
+        <section id="atp" class="my-8 md:my-12 fade-in">
+            <h2 class="text-3xl font-bold text-gray-800 section-title text-center">
+                El ATP (Trifosfato de Adenosina)
+            </h2>
+            <div class="card">
+                <h3 class="text-2xl font-semibold mb-2 text-[#1A237E]">Definición y Función del ATP</h3>
+                <div class="md:flex md:space-x-8 items-center">
+                    <div class="md:w-2/3">
+                        <p class="text-gray-700 mb-4">
+                            El **ATP** es una molécula que funciona como la principal fuente de energía de las células. Su función es almacenar y liberar energía para impulsar casi todas las actividades celulares, desde el movimiento muscular hasta la síntesis de nuevas moléculas. Se le conoce como la "moneda energética" del cuerpo. 
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            La energía se libera cuando el ATP pierde un grupo fosfato, convirtiéndose en ADP (difosfato de adenosina). Este proceso se repite continuamente en nuestras células para mantenernos con vida.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 flex justify-center mt-6 md:mt-0">
+                        <img src="https://placehold.co/400x250/1A237E/E6F0FF?text=El+ATP" alt="Imagen de la molécula de ATP" class="rounded-lg shadow-md w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Tabla de Nutrición -->
+        <section id="alimentos" class="my-8 md:my-12 fade-in">
+            <div class="flex items-center justify-between">
+                <h2 class="text-3xl font-bold text-gray-800 section-title text-center">
+                    Tabla Nutricional de Alimentos Cotidianos
+                </h2>
+            </div>
+            <div class="overflow-x-auto card">
+                <table class="w-full text-left nutrition-table">
+                    <thead>
+                        <tr>
+                            <th class="rounded-tl-lg">Alimento</th>
+                            <th>Carbohidratos</th>
+                            <th>Lípidos</th>
+                            <th>Proteínas</th>
+                            <th class="rounded-tr-lg">Vitaminas y Minerales</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-medium">Manzana</td>
+                            <td>14 g</td>
+                            <td>0.3 g</td>
+                            <td>0.3 g</td>
+                            <td>Vitamina C, Potasio</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Pechuga de Pollo (100g)</td>
+                            <td>0 g</td>
+                            <td>3.6 g</td>
+                            <td>31 g</td>
+                            <td>Vitamina B6, Fósforo</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Aguacate (100g)</td>
+                            <td>8.5 g</td>
+                            <td>15 g</td>
+                            <td>2 g</td>
+                            <td>Vitamina K, Folato, Potasio</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Pan Integral (1 rebanada)</td>
+                            <td>12 g</td>
+                            <td>1 g</td>
+                            <td>4 g</td>
+                            <td>Vitamina B, Hierro</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Leche (1 taza)</td>
+                            <td>12 g</td>
+                            <td>8 g</td>
+                            <td>8 g</td>
+                            <td>Calcio, Vitamina D</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Lentejas (1 taza cocidas)</td>
+                            <td>40 g</td>
+                            <td>0.8 g</td>
+                            <td>18 g</td>
+                            <td>Hierro, Fibra, Magnesio</td>
+                        </tr>
+                         <!-- Nuevos alimentos agregados -->
+                        <tr>
+                            <td class="font-medium">Plátano</td>
+                            <td>27 g</td>
+                            <td>0.3 g</td>
+                            <td>1.3 g</td>
+                            <td>Vitamina B6, Vitamina C, Potasio</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Brócoli (100g)</td>
+                            <td>7 g</td>
+                            <td>0.4 g</td>
+                            <td>2.8 g</td>
+                            <td>Vitamina C, Vitamina K, Hierro</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Naranja</td>
+                            <td>15 g</td>
+                            <td>0.1 g</td>
+                            <td>1.2 g</td>
+                            <td>Vitamina C, Folato, Calcio</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Espinaca (100g)</td>
+                            <td>3.6 g</td>
+                            <td>0.4 g</td>
+                            <td>2.9 g</td>
+                            <td>Vitamina A, Vitamina K, Hierro</td>
+                        </tr>
+                        <tr>
+                            <td class="font-medium">Huevo (1 unidad)</td>
+                            <td>0.6 g</td>
+                            <td>5 g</td>
+                            <td>6 g</td>
+                            <td>Vitamina D, B12, Colina</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-[#1A237E] text-[#E6F0FF] py-6 mt-12 text-center">
+        <div class="container mx-auto">
+            <p>&copy; 2024 Proyecto de Biología Molecular.</p>
+            <p class="mt-2">Adrian Martínez Noyola, Grupo 6, Semestre 3</p>
+            <p class="mt-2">Javier Alejandro Guerrero Mendez</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll("section");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                    }
+                });
+            }, { threshold: 0.1 }); // Se activa cuando el 10% de la sección es visible
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
